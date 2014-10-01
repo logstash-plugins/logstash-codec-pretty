@@ -9,7 +9,7 @@ class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
   milestone 3
 
   def register
-    require "ap"
+    require "awesome_print"
   end
 
   public
