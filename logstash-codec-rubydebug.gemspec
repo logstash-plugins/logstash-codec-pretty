@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
   s.name            = 'logstash-codec-rubydebug'
-  s.version         = '0.1.0'
+  s.version         = '0.1.1'
   s.licenses        = ['Apache License (2.0)']
   s.summary         = "The rubydebug codec will output your Logstash event data using the Ruby Awesome Print library."
   s.description     = "The rubydebug codec will output your Logstash event data using the Ruby Awesome Print library."
