@@ -1,3 +1,4 @@
+require "logstash/devutils/rspec/spec_helper"
 require "logstash/codecs/rubydebug"
 require "logstash/event"
 require "awesome_print"
