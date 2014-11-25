@@ -15,7 +15,7 @@ describe LogStash::Codecs::RubyDebug do
     it "should print beautiful hashes" do
       test_event = LogStash::Event.new({"what" => "ok", "who" => 2})
       got_event = false
-      subject.on_event do |d|
+      subject.on_event do |e, d|
         insist { d.chomp } == test_event.to_hash.awesome_inspect 
         got_event = true
       end

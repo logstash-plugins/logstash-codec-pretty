@@ -31,11 +31,11 @@ class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
   end
 
   def encode_default(event)
-    @on_event.call(event.to_hash.awesome_inspect + NL)
+    @on_event.call(event, event.to_hash.awesome_inspect + NL)
   end # def encode_default
 
   def encode_with_metadata(event)
-    @on_event.call(event.to_hash_with_metadata.awesome_inspect + NL)
+    @on_event.call(event, event.to_hash_with_metadata.awesome_inspect + NL)
   end # def encode_with_metadata
 
 end # class LogStash::Codecs::Dots
