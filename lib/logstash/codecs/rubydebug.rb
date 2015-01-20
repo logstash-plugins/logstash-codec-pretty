@@ -6,7 +6,6 @@ require "logstash/codecs/base"
 #
 class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
   config_name "rubydebug"
-  milestone 3
 
   # Should the event's metadata be included?
   config :metadata, :validate => :boolean, :default => false
