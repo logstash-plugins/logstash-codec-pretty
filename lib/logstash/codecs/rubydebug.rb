@@ -12,6 +12,7 @@ class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
 
   def register
     require "awesome_print"
+    AwesomePrint.defaults = { :color => { :logstash_timestamp => :green } }
     if @metadata
       @encoder = method(:encode_with_metadata)
     else
