@@ -1,4 +1,4 @@
-## 2.0.2
+## 2.0.3
  - Colorize LogStash::Timestamp as green
 ## 2.0.0
  - Plugins were updated to follow the new shutdown semantic, this mainly allows Logstash to instruct input plugins to terminate gracefully, 
