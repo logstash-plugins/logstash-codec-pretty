@@ -1,26 +1,22 @@
 require "logstash/devutils/rspec/spec_helper"
 require "logstash/codecs/rubydebug"
 require "logstash/event"
-require "awesome_print"
-require "insist"
 
 describe LogStash::Codecs::RubyDebug do
 
-
-  subject do
-    next LogStash::Codecs::RubyDebug.new
-  end
+  subject { LogStash::Codecs::RubyDebug.new }
 
   context "#encode" do
     it "should print beautiful hashes" do
-      test_event = LogStash::Event.new({"what" => "ok", "who" => 2})
-      got_event = false
-      subject.on_event do |e, d|
-        insist { d.chomp } == test_event.to_hash.awesome_inspect 
-        got_event = true
-      end
-      subject.encode(test_event)
-      insist { got_event }
+      subject.register
+
+      event = LogStash::Event.new({"what" => "ok", "who" => 2})
+      on_event = lambda { |e, d| expect(d.chomp).to eq(event.to_hash.awesome_inspect) }
+
+      subject.on_event(&on_event)
+      expect(on_event).to receive(:call).once.and_call_original
+
+      subject.encode(event)
     end
   end
 

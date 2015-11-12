@@ -10,9 +10,14 @@ class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
   # Should the event's metadata be included?
   config :metadata, :validate => :boolean, :default => false
 
+  # AWESOME_OPTIONS = {:color => {:logstash_timestamp => :green}}
+  # disabled options, for some reason the timnestamp coloring is boggus only occurs once and is not testable.
+  AWESOME_OPTIONS = {}
+
   def register
     require "awesome_print"
-    AwesomePrint.defaults = { :color => { :logstash_timestamp => :green } }
+    AwesomePrint.defaults = AWESOME_OPTIONS
+
     if @metadata
       @encoder = method(:encode_with_metadata)
     else
