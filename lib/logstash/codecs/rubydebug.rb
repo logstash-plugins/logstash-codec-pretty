@@ -11,7 +11,7 @@ class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
   config :metadata, :validate => :boolean, :default => false
 
   # AWESOME_OPTIONS = {:color => {:logstash_timestamp => :green}}
-  # disabled options, for some reason the timnestamp coloring is boggus only occurs once and is not testable.
+  # disabled options, awesome_print coloring option is buggy and only occurs once and it cannot be tested.
   AWESOME_OPTIONS = {}
 
   def register
