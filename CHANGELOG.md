@@ -1,3 +1,5 @@
+## 2.0.5
+ - monkey patch ActiveSupport in specs so awesome_print does not use a non existing method
 ## 2.0.4
  - remove LogStash::Timestamp coloring
 ## 2.0.3
