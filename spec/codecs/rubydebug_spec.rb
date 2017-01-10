@@ -27,8 +27,15 @@ describe LogStash::Codecs::RubyDebug do
       subject.register
 
       event = LogStash::Event.new({"what" => "ok", "who" => 2})
-      on_event = lambda { |e, d| expect(d.chomp).to eq(event.to_hash.awesome_inspect) }
+      # with the new java event the to_hash function returns different instances each time
+      # the timestamp field will 'inspect' to a different string each time to_hash is called
+      expected = event.to_hash.awesome_inspect.gsub(/LogStash::Timestamp:0x\h{7,8}/, 'LogStash::Timestamp:0x')
 
+      on_event = lambda do |e, d|
+        actual = d.chomp.gsub(/LogStash::Timestamp:0x\h{7,8}/, 'LogStash::Timestamp:0x')
+        expect(actual).to eq(expected)
+      end
+      
       subject.on_event(&on_event)
       expect(on_event).to receive(:call).once.and_call_original
 
