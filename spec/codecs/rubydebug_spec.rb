@@ -26,8 +26,13 @@ describe LogStash::Codecs::RubyDebug do
     it "should print beautiful hashes" do
       subject.register
 
-      event = LogStash::Event.new({"what" => "ok", "who" => 2})
-      on_event = lambda { |e, d| expect(d.chomp).to eq(event.to_hash.awesome_inspect) }
+      event = LogStash::Event.new({"what" => "ok", "who" => 2222})
+
+      on_event = lambda do |e, d|
+        expect(d.chomp).to match(/\"ok\"/)
+        expect(d.chomp).to match(/2222/)
+        expect(d.chomp).to match(/@timestamp/)
+      end
 
       subject.on_event(&on_event)
       expect(on_event).to receive(:call).once.and_call_original
