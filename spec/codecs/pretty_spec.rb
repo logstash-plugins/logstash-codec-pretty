@@ -1,8 +1,8 @@
 require "logstash/devutils/rspec/spec_helper"
-require "logstash/codecs/rubydebug"
+require "logstash/codecs/pretty"
 require "logstash/event"
 
-describe LogStash::Codecs::RubyDebug do
+describe LogStash::Codecs::Pretty do
 
   # This is a necessary monkey patch that ensures that if ActiveSupport
   # is defined, then the on_load method exists.
@@ -20,7 +20,7 @@ describe LogStash::Codecs::RubyDebug do
     end
   end
 
-  subject { LogStash::Codecs::RubyDebug.new }
+  subject { LogStash::Codecs::Pretty.new }
 
   context "#encode" do
     it "should print beautiful hashes" do

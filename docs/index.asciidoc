@@ -1,4 +1,4 @@
-:plugin: rubydebug
+:plugin: pretty
 :type: codec
 
 ///////////////////////////////////////////
@@ -14,18 +14,18 @@ END - GENERATED VARIABLES, DO NOT EDIT!
 
 [id="plugins-{type}s-{plugin}"]
 
-=== Rubydebug codec plugin
+=== Pretty codec plugin
 
 include::{include_path}/plugin_header.asciidoc[]
 
 ==== Description
 
-The rubydebug codec will output your Logstash event data using
+The Pretty codec will pretty print your event data using
 the Ruby Awesome Print library.
 
 
 [id="plugins-{type}s-{plugin}-options"]
-==== Rubydebug Codec Configuration Options
+==== Pretty Codec Configuration Options
 
 [cols="<,<,<",options="header",]
 |=======================================================================
@@ -41,6 +41,6 @@ the Ruby Awesome Print library.
   * Value type is <<boolean,boolean>>
   * Default value is `false`
 
-Should the event's metadata be included?
+Should the event's metadata be included in the output?
 
 

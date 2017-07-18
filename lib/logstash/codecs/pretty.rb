@@ -4,10 +4,10 @@ require "logstash/codecs/base"
 # The rubydebug codec will output your Logstash event data using
 # the Ruby Awesome Print library.
 #
-class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
-  config_name "rubydebug"
+class LogStash::Codecs::Pretty < LogStash::Codecs::Base
+  config_name "pretty"
 
-  # Should the event's metadata be included?
+  # Should the event's metadata be included in the output?
   config :metadata, :validate => :boolean, :default => false
 
   # AWESOME_OPTIONS = {:color => {:logstash_timestamp => :green}}
@@ -43,4 +43,4 @@ class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
     @on_event.call(event, event.to_hash_with_metadata.awesome_inspect + NL)
   end # def encode_with_metadata
 
-end # class LogStash::Codecs::Dots
+end # class LogStash::Codecs::Print
