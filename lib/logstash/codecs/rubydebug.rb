@@ -1,5 +1,6 @@
 # encoding: utf-8
 require "logstash/codecs/base"
+require "logstash/logging"
 
 # The rubydebug codec will output your Logstash event data using
 # the Ruby Awesome Print library.
@@ -15,6 +16,7 @@ class LogStash::Codecs::RubyDebug < LogStash::Codecs::Base
   AWESOME_OPTIONS = {}
 
   def register
+    logger.warn("This plugin is deprecated. It will be renamed to 'pretty' in the next major version")
     require "awesome_print"
     AwesomePrint.defaults = AWESOME_OPTIONS
 
