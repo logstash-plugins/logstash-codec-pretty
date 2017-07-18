@@ -43,4 +43,4 @@ class LogStash::Codecs::Pretty < LogStash::Codecs::Base
     @on_event.call(event, event.to_hash_with_metadata.awesome_inspect + NL)
   end # def encode_with_metadata
 
-end # class LogStash::Codecs::Print
+end # class LogStash::Codecs::Pretty
