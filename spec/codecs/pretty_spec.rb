@@ -10,7 +10,7 @@ describe LogStash::Codecs::Pretty do
   # ActiveSupport is loaded. Since some versions of ActiveSupport don't
   # have the on_load method we must ensure this method exists.
   # More information:
-  # * https://github.com/logstash-plugins/logstash-codec-rubydebug/issues/8
+  # * https://github.com/logstash-plugins/logstash-codec-pretty/issues/8
   # * https://github.com/michaeldv/awesome_print/pull/206
   before(:all) do
     if defined?(ActiveSupport) && !ActiveSupport.respond_to?(:on_load)

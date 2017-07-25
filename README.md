@@ -1,6 +1,6 @@
 # Logstash Plugin
 
-[![Travis Build Status](https://travis-ci.org/logstash-plugins/logstash-codec-rubydebug.svg)](https://travis-ci.org/logstash-plugins/logstash-codec-rubydebug)
+[![Travis Build Status](https://travis-ci.org/logstash-plugins/logstash-codec-pretty.svg)](https://travis-ci.org/logstash-plugins/logstash-codec-pretty)
 
 This is a plugin for [Logstash](https://github.com/elastic/logstash).
 
