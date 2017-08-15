@@ -1,3 +1,6 @@
+## 1.0.1
+  - Fix some documentation issues
+
 ## 1.0.0
  - Rename codec to `pretty` to better reflect its functionality.
 ------------------------------------------------------------------
